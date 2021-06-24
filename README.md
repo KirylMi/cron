@@ -8,10 +8,10 @@ check logs. If current-time > n -> execute pgsql script. Is that it?
 1. cron file:
     1. Change `/5` to `/n`, where `n` - period of minutes, after which script will be executed
     2. Change `cd ~/Workplace/Cron` to `cd path_to_your_dir`
-    3. Change `'{print $1}'` to `'{print $n}'` based on where the time is in the logs
 2. task.sh:
     1. Change all the variables inside the task.sh file (seconds gap, path to log)
     2. Change psql code call
+    3. Change `'{print $1}'` to `'{print $n}'` based on where the time is in the logs
 3. Start cron executable with `crontab cron`
 
 
@@ -63,6 +63,7 @@ Is checking for log existance required?
         1. PATH_TO_LOG (путь до файла с логом)
         2. SECONDS_GAP (количество секунд, по истечению которых последний лог считается устаревшим, и появляеться необходимость в выполнениии  скрипта)
     2. Сменить вызов процедуры на свой (строчка под `#enter your code below`), а также, при необходимости, ключи команды psql (-U ваш_юзернейм и т.д.)
+    3. Сменить `$1` в `awk '{print $1}'` на `$n`, где n - порядковый номер времени в логе (т.е. если лог представляет из себя some_info 05:05:05, то нужно $2, если лог 05:05:05 info, то нужно $1, если там еще дата сцеплена со временем, то возможно надо чутка поменять код)
 3. Запустить cron сервис при помощи `crontab путь_до_файла_cron`)
 
 ### Тестирование:
