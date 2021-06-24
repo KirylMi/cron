@@ -1,7 +1,7 @@
 #!/bin/bash
 #TO BE EDITED BASED ON THE ENVIRONMENT:
 PATH_TO_LOG="./log.txt"
-SECONDS_GAP=300
+SECONDS_GAP=1
 
 LAST_LOG=`tail -1 "$PATH_TO_LOG"`
 
@@ -23,11 +23,9 @@ then
   echo "action	      : none"
 else
   echo "doing stuff..."
-  #else we need to invoke pgsql procedure
   #enter your code below
-  #psql -U postgres -d database_name -c 'SELECT SOMETHING...'
+  echo `printf '%(%T)T\n'` `psql -U postgres test_db -t -c "select my_function();"` >> "$PATH_TO_LOG"
   echo "action        : done"
-  echo `printf '%(%T)T\n'` some_info >> "$PATH_TO_LOG"
   echo "log           : updated"
 fi 
 
