@@ -8,6 +8,7 @@ check logs. If current-time > n -> execute pgsql script. Is that it?
 1. cron file:
     1. Change `/5` to `/n`, where `n` - period of minutes, after which script will be executed
     2. Change `cd ~/Workplace/Cron` to `cd path_to_your_dir`
+    3. Change `'{print $1}'` to `'{print $n}'` based on where the time is in the logs
 2. task.sh:
     1. Change all the variables inside the task.sh file (seconds gap, path to log)
     2. Change psql code call
