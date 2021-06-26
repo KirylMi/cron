@@ -17,16 +17,16 @@ echo "current time  :" `printf '%(%T)T\n'`
 echo "time diff     :" $TIME_DIFF
 echo "installed gap :" $SECONDS_GAP seconds
 
-if [ $TIME_DIFF -le $SECONDS_GAP ]
+if [ $TIME_DIFF -gt $SECONDS_GAP ] || [ $TIME_DIFF -lt 0 ]
 then
-  #if time difference is less(equals) than seconds gap -> do nothing 
-  echo "action	      : none"
-else
   echo "doing stuff..."
   #enter your code below
   echo `printf '%(%T)T\n'` `psql -U postgres test_db -t -c "select my_function();"` >> "$PATH_TO_LOG"
   echo "action        : done"
-  echo "log           : updated"
+  echo "log           : updated"  
+else
+  #if time difference is less(equals) than seconds gap -> do nothing 
+  echo "action	      : none"
 fi 
 
 
