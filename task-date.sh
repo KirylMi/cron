@@ -27,7 +27,7 @@ then
   echo "log           : updated"  
 else
   #if time difference is less(equals) than seconds gap -> do nothing 
-  echo "action	      : none"
+  echo "action        : none"
 fi 
 
 

@@ -1,4 +1,4 @@
- *  *    *    *    *        cd ~/Workplace/Cron && ./task.sh
+ *    *    *    *    *        cd ~/cron && ./task-date.sh 2>&1 | logger -t my_cron
 #┬    ┬    ┬    ┬    ┬
 #│    │    │    │    └─  Weekday  (0=Sun .. 6=Sat)
 #│    │    │    └──────  Month    (1..12)

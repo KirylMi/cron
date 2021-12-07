@@ -1,0 +1,7 @@
+﻿CREATE OR REPLACE FUNCTION my_function() returns text as
+$$
+BEGIN
+RETURN 'hello world';
+END;
+$$
+language plpgsql;
